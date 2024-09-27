@@ -2,6 +2,7 @@
 #define FIXED_HPP
 #include <iostream>
 #include <ostream>
+#include <cmath>
 #include "colors.hpp"
 
 class Fixed{
@@ -18,10 +19,12 @@ class Fixed{
 	//Member functions:
 	const int	&getRawBits(void) const;
 	void		setRawBits(int const raw);
+	float		toFloat( void ) const;
+	int			toInt( void ) const;
 
 	private:
 	static const int _FixedPoint = 8;
-	int _MyInt;
+	int _value;
 };
 
 std::ostream & operator<<(std::ostream & out, Fixed const & src);
