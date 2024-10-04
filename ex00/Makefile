@@ -1,6 +1,6 @@
 NAME 		=	Fixed
-CC 			=	clang++
-CFLAGS 		=	-Wall -Wextra -Werror -MMD -g3 -std=c++98 -gdwarf-4
+CXX 			=	clang++
+CPPFLAGS 		=	-Wall -Wextra -Werror -MMD -g3 -std=c++98 -gdwarf-4
 SRC_PATH	=	src/
 OBJ_PATH	=	.obj/
 SRC_NAME	=	main.cpp \
@@ -12,11 +12,11 @@ SRC 		=	$(addprefix $(SRC_PATH), $(SRC_NAME))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	@$(CXX) $(CPPFLAGS) -o $(NAME) $(OBJ)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -o $@ -c $<
+	@$(CXX) $(CPPFLAGS) -o $@ -c $<
 
 -include $(OBJ:%.o=%.d)
 
